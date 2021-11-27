@@ -9,6 +9,9 @@ public class Asteroid : MonoBehaviour
 
     // Indicator color
     public Color indicatorColor = Color.white;
+    
+    // For space station to keep track of did it play alert sound for this asteroid
+    public bool playedAlertSound = false;
 
     void Start()
     {
