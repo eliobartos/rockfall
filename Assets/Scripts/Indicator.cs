@@ -84,8 +84,8 @@ public class Indicator : MonoBehaviour
         // Work out where in screen space the object is
         var viewportPoint = Camera.main.WorldToViewportPoint(target.position);
 
-        //Debug.Log("Target World position: " + target.position);
-        //Debug.Log("View Port Point: " + viewportPoint);
+        Debug.Log("Target World position: " + target.position);
+        Debug.Log("View Port Point: " + viewportPoint);
 
         // Is the point behind us?
         if( viewportPoint.z < 0) {
@@ -107,7 +107,7 @@ public class Indicator : MonoBehaviour
         var screenPoint = Camera.main.ViewportToScreenPoint(viewportPoint);
         Vector2 newScreenPoint = new Vector2();
 
-        //Debug.Log("Screen Point: " + screenPoint);
+        Debug.Log("Screen Point: " + screenPoint);
         
         newScreenPoint.x = Mathf.Clamp(screenPoint.x, 2*margin, Screen.width - margin * 2);
         newScreenPoint.y = Mathf.Clamp(screenPoint.y, 2*margin, Screen.height - margin * 2);
@@ -129,7 +129,7 @@ public class Indicator : MonoBehaviour
         }
 
 
-        //Debug.Log("Screen Point Clamped: " + newScreenPoint);      
+        Debug.Log("Screen Point Clamped: " + newScreenPoint);      
         
         // Work out wher ein the canvas-space the view-space coordinate is
         var localPosition = new Vector2();
@@ -140,10 +140,10 @@ public class Indicator : MonoBehaviour
         //     Camera.main,
         //     out localPosition);
 
-        localPosition.x = -512.0f + (newScreenPoint.x - margin) * (512.0f * 2) / (Screen.width - 2 * margin);
-        localPosition.y = -288.0f + (newScreenPoint.y - margin) * (288.0f * 2) / (Screen.height - 2 * margin);
+        localPosition.x = -512.0f + newScreenPoint.x * (512.0f * 2) / Screen.width;
+        localPosition.y = -288.0f + newScreenPoint.y * (288.0f * 2) / Screen.height;
 
-        //Debug.Log("Local Position" + localPosition);
+        Debug.Log("Local Position" + localPosition);
 
         // Update our position
         var rectTransform = GetComponent<RectTransform>();
