@@ -210,7 +210,15 @@ public class GameManager : Singleton<GameManager>
     }
 
     public void LoadGameData() {
+
+        // If we don't have a save file, set high score to 0
+        // else, load file and get true high score
         SaveGameData data = SaveSystem.LoadGame();
-        highScore = data.highScore;
+        if(data == null) {
+            highScore = 0;
+        } else {
+            highScore = data.highScore;
+        }
+        
     }
 }

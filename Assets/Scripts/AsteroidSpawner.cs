@@ -38,6 +38,10 @@ public class AsteroidSpawner : MonoBehaviour
             // Work out when the next asteroid should appear
             float nextSpawnTime = spawnCurve.Evaluate(timer.GetElapsedTime()) + Random.Range(-variance, variance);
             //Debug.Log("At: " + timer.GetElapsedTime() + " the value is " + spawnCurve.Evaluate(timer.GetElapsedTime()));
+            
+            if(nextSpawnTime <= 0) {
+                nextSpawnTime = 0;
+            }
 
             // Wait that much time
             yield return new WaitForSeconds(nextSpawnTime);
