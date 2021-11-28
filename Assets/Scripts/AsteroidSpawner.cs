@@ -56,7 +56,7 @@ public class AsteroidSpawner : MonoBehaviour
 
     void CreateNewAsteroid() {
     
-        Debug.Log("Time passed: " + timer.GetElapsedTime());
+        //Debug.Log("Time passed: " + timer.GetElapsedTime());
 
         // If we're not currently spawning asteroids, bail out
         if(spawnAsteroids == false) 
@@ -86,7 +86,7 @@ public class AsteroidSpawner : MonoBehaviour
 
         // Random Size
         float randomSize = Random.Range(5, 15);
-        Debug.Log("Creating New Asteroid!! Size: " + randomSize);
+        //Debug.Log("Creating New Asteroid!! Size: " + randomSize);
         newAsteroid.transform.localScale = new Vector3(randomSize, randomSize, randomSize);
 
         // Set proper health and damage based on size

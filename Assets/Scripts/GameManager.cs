@@ -43,7 +43,8 @@ public class GameManager : Singleton<GameManager>
     // Keep high score and current score
     [HideInInspector] public int highScore = 0;
     [HideInInspector] public int currentScore = 0;
-    public Text scoreText;
+    public Text scoreTextInGameUI;
+    public Text scoreTextGameOverUI;
     public Text highScoreTextMainMenuUI;
     public Text highScoreTextGameOverUI;
 
@@ -150,6 +151,9 @@ public class GameManager : Singleton<GameManager>
          // Stop showing warning UI, if it was visible
          warningUI.SetActive(false);
 
+         // Set current score text
+         scoreTextGameOverUI.text = "Score: " + currentScore;
+
          // Set current score as high score if that is the case
          if(currentScore > highScore) {
              highScore = currentScore;
@@ -187,7 +191,7 @@ public class GameManager : Singleton<GameManager>
             return;
 
         // Set proper score during the game text
-        scoreText.text = "Score: " + currentScore;
+        scoreTextInGameUI.text = "Score: " + currentScore;
 
         // If the ship is outside the Boundary's Destroy radius, game over.
         // If it's within the Destroy radius, but outside of warning radius, show

@@ -38,7 +38,7 @@ public class InputManager : Singleton<InputManager>
 
     public void Start() {
         StartCoroutine(FireWeapons());
-        Debug.Log("Staring Fire Coroutine");
+        //Debug.Log("Staring Fire Coroutine");
     }
 
     public void StartFiring() {

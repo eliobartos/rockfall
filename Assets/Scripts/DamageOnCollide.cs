@@ -11,7 +11,7 @@ public class DamageOnCollide : MonoBehaviour
     public int damageToSelf = 5;
 
     void HitObject(GameObject theObject) {
-        Debug.Log("Object: " + gameObject.name + " hit " + theObject.name);
+        //Debug.Log("Object: " + gameObject.name + " hit " + theObject.name);
 
         // If hit object is ship (player) <> shot, do nothing
         // If it is shot, destroy it so it does not damages 2 times space station
